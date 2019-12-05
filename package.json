@@ -13,6 +13,7 @@
         "babel-plugin-import": "^1.9.1",
         "cross-env": "^5.2.0",
         "express": "^4.14.0",
+        "micro-cors": "^0.1.1",
         "next": "latest",
         "null-loader": "^2.0.0",
         "react": "^16.8.6",

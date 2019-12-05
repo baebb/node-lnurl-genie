@@ -1,6 +1,5 @@
 // NPM Dependencies
 import React from 'react';
-import Link from 'next/link';
 
 // UI Dependencies
 import {
@@ -19,23 +18,6 @@ const Option = Select.Option;
 export default () => (
     <>
         <h1>This is sick 3</h1>
-        <ul>
-            <li>
-                <Link href="/b" as="/a">
-                    <a>a</a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/a" as="/b">
-                    <a>b</a>
-                </Link>
-            </li>
-            <li>
-                <Link href={{ pathname: '/posts', query: { id: '2' } }} as="/posts/2">
-                    <a>post #2</a>
-                </Link>
-            </li>
-        </ul>
         <div style={{ marginTop: 100 }}>
             <Form layout="horizontal">
                 <FormItem
