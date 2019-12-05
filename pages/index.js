@@ -18,6 +18,7 @@ const Option = Select.Option;
 
 export default () => (
     <>
+        <h1>This is sick</h1>
         <ul>
             <li>
                 <Link href="/b" as="/a">
