@@ -1,0 +1,21 @@
+{
+    "name": "node-lnurl-genie",
+    "description": "node app to demo LNURL",
+    "version": "0.1.0",
+    "scripts": {
+        "dev": "node server.js",
+        "build": "next build",
+        "start": "cross-env NODE_ENV=production node server.js"
+    },
+    "dependencies": {
+        "@zeit/next-css": "^1.0.1",
+        "antd": "^3.9.2",
+        "babel-plugin-import": "^1.9.1",
+        "cross-env": "^5.2.0",
+        "express": "^4.14.0",
+        "next": "latest",
+        "null-loader": "^2.0.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
+    }
+}

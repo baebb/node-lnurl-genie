@@ -29,7 +29,8 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (https://nodejs.org/api/addons.html)
+# production
+/build
 build/Release
 
 # Dependency directories
@@ -54,8 +55,10 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
+# misc
+.DS_Store
+.env*
 
 # next.js build output
 .next
+/out/
