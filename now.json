@@ -3,6 +3,11 @@
         "autoAlias": true,
         "silent": true
     },
+    "build": {
+        "env": {
+            "LN_MACAROON": "@ln-macaroon"
+        },
+    },
     "env": {
         "LN_MACAROON": "@ln-macaroon"
     }

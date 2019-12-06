@@ -2,6 +2,8 @@
 const withCss = require('@zeit/next-css');
 require('dotenv').config();
 
+const dev = process.env.NODE_ENV !== 'production';
+
 module.exports = withCss({
     webpack: (config, { isServer }) => {
         if (isServer) {
@@ -26,7 +28,5 @@ module.exports = withCss({
         }
         return config
     },
-    env: {
-        LN_MACAROON: process.env.LN_MACAROON,
-    },
+    ...(dev ? { env: { LN_MACAROON: process.env.LN_MACAROON, } } : {})
 });
