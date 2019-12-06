@@ -1,6 +1,3 @@
-// NPM Dependencies
-// import Cors from 'micro-cors';
-
 const metadataString = [
     [
         'text/plain', // mime-type, "text/plain" is the only supported type for now, must always be present
@@ -16,21 +13,16 @@ const firstResponse = {
     tag: 'payRequest' // type of LNURL
 };
 
-// const Endpoint = async (req, res) => {
 export default async (req, res) => {
-    const serverUrl = `${req.headers.host}`;
+    // Our server's URL
+    const serverUrl = `https://${req.headers.host}`;
 
     if (req.method !== 'GET') {
         res.status(404).send('Not found');
     } else {
         res.status(200).json({
             ...firstResponse,
-            callback: `https://${serverUrl}/api/lnurl-two`,
+            callback: `${serverUrl}/api/lnurl-two`, // update the callback with our server's URL
         });
     }
 };
-
-// const cors = Cors({
-//     allowedMethods: ['GET'],
-// });
-// export default cors(Endpoint);

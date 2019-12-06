@@ -2,5 +2,8 @@
     "github": {
         "autoAlias": true,
         "silent": true
+    },
+    "env": {
+        "LN_MACAROON": "@ln-macaroon"
     }
 }
