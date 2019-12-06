@@ -57,7 +57,7 @@ export default async (req, res) => {
                 pr: payment_request,
                 successAction: {
                     tag: 'url',
-                    desciption: 'The genie shall answer your question...',
+                    desciption: 'The genie will answer your question...',
                     url: `${serverUrl}/answer?r=${r_hash}`
                 }
             });
