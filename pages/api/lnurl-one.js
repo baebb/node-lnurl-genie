@@ -3,8 +3,8 @@
 
 const metadataString = [
     [
-        "text/plain", // mime-type, "text/plain" is the only supported type for now, must always be present
-        "The genie asks for some sats to answer your question..." // actual metadata content
+        'text/plain', // mime-type, "text/plain" is the only supported type for now, must always be present
+        'The genie asks for some sats to answer your question...' // actual metadata content
     ]
 ];
 
@@ -13,7 +13,7 @@ const firstResponse = {
     maxSendable: 465 * 1000, // max amount LN SERVICE is willing to receive in mSat
     minSendable: 465 * 1000, // min amount LN SERVICE is willing to receive in mSat, can not be less than 1 or more than `maxSendable`
     metadata: metadataString, // metadata json which must be presented as raw string here, this is required to pass signature verification at a later step
-    tag: "payRequest" // type of LNURL
+    tag: 'payRequest' // type of LNURL
 };
 
 // const Endpoint = async (req, res) => {
@@ -25,7 +25,7 @@ export default async (req, res) => {
     } else {
         res.status(200).json({
             ...firstResponse,
-            callback: `${serverUrl}/api/lnurl-two`,
+            callback: `https://${serverUrl}/api/lnurl-two`,
         });
     }
 };
