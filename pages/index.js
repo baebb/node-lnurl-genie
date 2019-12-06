@@ -14,10 +14,11 @@ import {
 
 const FormItem = Form.Item;
 const Option = Select.Option;
+const SERVER_URL = process.env.NOW_URL || 'https://localhost:3000';
 
 export default () => (
     <>
-        <h1>This is sick 3</h1>
+        <h1>server URL: {SERVER_URL}</h1>
         <div style={{ marginTop: 100 }}>
             <Form layout="horizontal">
                 <FormItem
