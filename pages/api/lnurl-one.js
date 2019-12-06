@@ -18,8 +18,8 @@ const firstResponse = {
 
 // const Endpoint = async (req, res) => {
 export default async (req, res) => {
-    const serverUrl = `https://${req.headers.host}`;
-    console.log(req.headers.host);
+    const serverUrl = `https://${req.headers['x-now-deployment-url']}`;
+
     if (req.method !== 'GET') {
         res.status(404).send('Not found');
     } else {
