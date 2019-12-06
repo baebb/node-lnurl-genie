@@ -11,10 +11,6 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
     const server = express();
 
-    server.get('/', (req, res) => {
-        return app.render(req, res, '/index', { serverUrl: req.headers['x-now-deployment-url'] });
-    });
-
     server.all('*', (req, res) => {
         return handle(req, res)
     });

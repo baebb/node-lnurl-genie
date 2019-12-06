@@ -16,14 +16,18 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 
 export default class extends Component {
-    static getInitialProps({ query: { serverUrl } }) {
-        return { serverUrl }
-    }
+    static async getInitialProps({ req }) {
+        const serverUrl = req ? req.headers['host'] : 'localhost:3000';
+
+        return {
+            serverUrl
+        };
+    };
 
     render() {
         return (
             <>
-                <h1>server URL: {this.props.serverUrl || 'localhost:3000'}</h1>
+                <h1>server URL: {this.props.serverUrl}</h1>
                 <div style={{ marginTop: 100 }}>
                     <Form layout="horizontal">
                         <FormItem
