@@ -18,5 +18,6 @@ app.prepare().then(() => {
     server.listen(port, err => {
         if (err) throw err;
         console.log(`Listening on ${port}`);
+        console.log(process.env);
     });
 });
