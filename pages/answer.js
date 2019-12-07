@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { Col, Row } from "antd";
 
 export default class extends Component {
-    static async getInitialProps({ req }) {
-        const hash = req.query['r'];
+    static async getInitialProps({ req, query }) {
+        const { r: hash } = query;
 
         return {
             hash

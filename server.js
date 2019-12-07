@@ -11,10 +11,6 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
     const server = express();
 
-    server.get('/answer', (req, res) => {
-        return app.render(req, res, '/answer', { req });
-    });
-
     server.all('*', (req, res) => {
         return handle(req, res);
     });
