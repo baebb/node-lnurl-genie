@@ -1,6 +1,14 @@
 // NPM Dependencies
 import axios from 'axios';
+import sha256 from 'js-sha256';
+import base64 from 'base64-js';
 const https = require('https');
+
+// Local Dependencies
+import { metadataString } from './lnurl-one';
+
+// sha256(utf8ByteArray(metadata))
+const metadataHash = base64.fromByteArray(sha256.digest(JSON.stringify(metadataString)));
 
 // Create an invoice for our customer
 const createInvoice = async (amount) => {
@@ -16,9 +24,9 @@ const createInvoice = async (amount) => {
         });
 
         return await LNnode.post('/v1/invoices', {
-            memo: 'LNURL genie fee',
-            value: amount * 1000,
+            value: amount,
             private: false,
+            description_hash: metadataHash
         });
     } catch (err) {
         throw err;
@@ -44,6 +52,8 @@ export default async (req, res) => {
             // Our server's URL
             const serverUrl = `https://${req.headers.host}`;
 
+            console.log(metadataHash);
+
             // We won't use this since we use a set amount
             const { amount } = req.query;
 
@@ -57,7 +67,7 @@ export default async (req, res) => {
                 pr: payment_request,
                 successAction: {
                     tag: 'url',
-                    desciption: 'The genie will answer your question...',
+                    description: 'The genie will answer your question...',
                     url: `${serverUrl}/answer?r=${r_hash}`
                 }
             });
