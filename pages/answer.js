@@ -17,7 +17,12 @@ export default class extends Component {
         return (
             <Row style={{ marginTop: 100 }}>
                 <Col xs={24} sm={{ span: 8, offset: 8 }} style={{ textAlign: 'center' }}>
-                    <h1>Genie is too tired to answer your question but your payment hash is {hash}</h1>
+                    <img
+                        src="/genieAnswer.png"
+                        width={200}
+                    />
+                    <h1>Genie is too tired to answer your question</h1>
+                    <small>but your payment hash is {hash}</small>
                 </Col>
             </Row>
         );
