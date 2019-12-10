@@ -28,5 +28,5 @@ module.exports = withCss({
         }
         return config
     },
-    ...(dev ? { env: { LN_MACAROON: process.env.LN_MACAROON, } } : {})
+    ...(dev ? { env: { LN_MACAROON: process.env.LN_MACAROON, LN_SERVER_URL: process.env.LN_SERVER_URL } } : {})
 });

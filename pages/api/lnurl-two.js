@@ -14,8 +14,8 @@ const metadataHash = base64.fromByteArray(sha256.digest(JSON.stringify(metadataS
 const createInvoice = async (amount) => {
     try {
         const LNnode = axios.create({
-            baseURL: 'https://satata.ddns.net:10008',
-            timeout: 10000,
+            baseURL: process.env.LN_SERVER_URL,
+            timeout: 12000,
             headers: {
                 'Grpc-Metadata-macaroon': process.env.LN_MACAROON,
                 'content-type': 'application/json',
@@ -52,8 +52,6 @@ export default async (req, res) => {
             // Our server's URL
             const serverUrl = `https://${req.headers.host}`;
 
-            console.log(metadataHash);
-
             // We won't use this since we use a set amount
             const { amount } = req.query;
 
@@ -62,6 +60,8 @@ export default async (req, res) => {
 
             // Payment request and hash
             const { payment_request, r_hash } = newInvoice.data;
+
+            console.log('newInvoice.data', newInvoice.data);
 
             res.status(200).json({
                 pr: payment_request,
