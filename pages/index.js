@@ -1,15 +1,7 @@
 // NPM Dependencies
 import React, { Component } from 'react';
 import QRCode from 'qrcode.react';
-
-// UI Dependencies
-import {
-    Col,
-    Row,
-    Typography,
-    Button,
-    Icon
-} from 'antd';
+import { Col, Row, Typography, Button, Icon } from 'antd';
 
 // Util Dependencies
 import { buildLNURL } from '../utils';

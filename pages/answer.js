@@ -1,9 +1,10 @@
 // NPM Dependencies
 import React, { Component } from 'react';
-import { Col, Row } from 'antd';
-import fetch from 'isomorphic-unfetch';
+import { Col, Row, Typography, Input, Button } from 'antd';
 
 import { LNnode } from '../utils';
+
+const { Text } = Typography;
 
 export default class extends Component {
     static async getInitialProps({ req, query }) {
@@ -26,6 +27,21 @@ export default class extends Component {
         };
     };
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            text: ''
+        };
+    }
+
+    answerQuestion(e) {
+        e.preventDefault();
+        const { text } = this.state;
+
+        window.open(`http://letmegooglethat.com/?q=${text}`,'_blank');
+    }
+
     render() {
         const { hash, invoiceData } = this.props;
 
@@ -37,7 +53,11 @@ export default class extends Component {
                             src="/genieNotFound.png"
                             width={150}
                         />
-                        <h1>Genie thinks you didn't pay your invoice</h1>
+                        <div style={{ marginBottom: 20, marginTop: 30 }}>
+                            <Text code style={{ fontSize: 20 }}>
+                                Genie thinks you didn't pay
+                            </Text>
+                        </div>
                         <small>your payment hash is<br/>{hash}</small>
                     </Col>
                 </Row>
@@ -51,8 +71,31 @@ export default class extends Component {
                         src="/genieAnswer.png"
                         width={200}
                     />
-                    <h1>Genie is too tired to answer your question</h1>
-                    <small>but your payment hash is {hash}</small>
+                    <div style={{ marginBottom: 20, marginTop: 30 }}>
+                        <Text code style={{ fontSize: 20 }}>
+                            Genie will answer your question...
+                        </Text>
+                    </div>
+                    <div style={{ marginBottom: 20 }}>
+                        <Input
+                            size="large"
+                            placeholder="your question..."
+                            onChange={
+                                ({ target }) =>
+                                this.setState({ text: target.value })
+                            }
+                        />
+                    </div>
+                    <div style={{ marginBottom: 20 }}>
+                        <Button
+                            type="primary"
+                            size="large"
+                            onClick={(e) => this.answerQuestion(e)}
+                        >
+                            Primary
+                        </Button>
+                    </div>
+                    <small>your payment hash is<br/>{hash}</small>
                 </Col>
             </Row>
         );
