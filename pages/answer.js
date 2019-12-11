@@ -10,7 +10,8 @@ export default class extends Component {
     static async getInitialProps({ req, query }) {
         const { r: hash } = query;
 
-        const buffer = Buffer.from(hash, 'base64');
+        const cleanedHash = hash.replace(/ /g, '+');
+        const buffer = Buffer.from(cleanedHash, 'base64');
         const hexOfHash = buffer.toString('hex');
 
         let invoiceData;
@@ -22,7 +23,7 @@ export default class extends Component {
         }
 
         return {
-            hash,
+            hash: cleanedHash,
             invoiceData
         };
     };
