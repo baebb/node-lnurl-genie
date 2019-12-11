@@ -69,7 +69,8 @@ export default async (req, res) => {
                     tag: 'url',
                     description: 'The genie will answer your question...',
                     url: `${serverUrl}/answer?r=${r_hash}`
-                }
+                },
+                routes: []
             });
         } catch (err) {
             throw err;
