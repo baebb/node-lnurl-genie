@@ -47,7 +47,7 @@ export default class extends Component {
                         </a>
                     </div>
                     <div style={{ marginBottom: 10 }}>
-                        <Text code>Scan LNURL to ask genie a question</Text>
+                        <Text code style={{ fontSize: 18 }}>Scan LNURL to ask genie a question</Text>
                     </div>
                     {/*<p>{this.props.serverUrl}</p>*/}
                     <div>

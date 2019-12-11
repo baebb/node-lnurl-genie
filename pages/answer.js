@@ -54,7 +54,7 @@ export default class extends Component {
                             width={150}
                         />
                         <div style={{ marginBottom: 20, marginTop: 30 }}>
-                            <Text code style={{ fontSize: 20 }}>
+                            <Text code style={{ fontSize: 18 }}>
                                 Genie thinks you didn't pay
                             </Text>
                         </div>
@@ -72,7 +72,7 @@ export default class extends Component {
                         width={200}
                     />
                     <div style={{ marginBottom: 20, marginTop: 30 }}>
-                        <Text code style={{ fontSize: 20 }}>
+                        <Text code style={{ fontSize: 18 }}>
                             Genie will answer your question...
                         </Text>
                     </div>
