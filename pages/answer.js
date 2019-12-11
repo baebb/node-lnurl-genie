@@ -93,7 +93,7 @@ export default class extends Component {
                             size="large"
                             onClick={(e) => this.answerQuestion(e)}
                         >
-                            Primary
+                            Receive answer
                         </Button>
                     </div>
                     <small>your payment hash is<br/>{hash}</small>
