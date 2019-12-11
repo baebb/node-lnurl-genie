@@ -5,10 +5,12 @@
     },
     "build": {
         "env": {
-            "LN_MACAROON": "@ln-macaroon"
+            "LN_MACAROON": "@ln-macaroon",
+            "LN_SERVER_URL": "@ln-server-url"
         }
     },
     "env": {
-        "LN_MACAROON": "@ln-macaroon"
+        "LN_MACAROON": "@ln-macaroon",
+        "LN_SERVER_URL": "@ln-server-url"
     }
 }
